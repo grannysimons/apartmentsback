@@ -30,7 +30,9 @@ module.exports = (app) => {
   // );
   app.use(cors({
     origin: "*",
-    credentials: true
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: "GET,PUT,POST,DELETE",
   }));
 
   // In development environment the app logs
