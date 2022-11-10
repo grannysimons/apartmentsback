@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const Apartment = require("../models/Apartment.model");
+const isAuthenticated = require("../middleware/isAuthenticated");
 
 router.get("/", (req, res, next) => {
+  console.log("req.payload: ", req.payload);
   //obtenir llista d'aparments
   Apartment.find()
   .then(results => {
@@ -25,7 +27,7 @@ router.get("/:idApartment", (req, res, next) => {
   })
 })
 
-router.put("/:idApartment", (req, res, next) => {
+router.put("/:idApartment", isAuthenticated, (req, res, next) => {
   //actualitzar un apartment concret 
   Apartment.findByIdAndUpdate(req.params.idApartment, req.body)
   .then(results => {
@@ -36,7 +38,7 @@ router.put("/:idApartment", (req, res, next) => {
   })
 })
 
-router.delete("/:idApartment", (req, res, next) => {
+router.delete("/:idApartment", isAuthenticated, (req, res, next) => {
   //eliminar un apartment concret
   Apartment.findByIdAndDelete(req.params.idApartment)
   .then(results => {
@@ -49,7 +51,7 @@ router.delete("/:idApartment", (req, res, next) => {
 
 
 
-router.post("/", async (req, res, next) => {
+router.post("/", isAuthenticated, async (req, res, next) => {
   //publicar un apartment
   try {
     const response = await Apartment.create(req.body)
