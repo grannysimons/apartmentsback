@@ -28,7 +28,10 @@ module.exports = (app) => {
   //     credentials: true
   //   })
   // );
-  app.use(cors());
+  app.use(cors({
+    origin: "*",
+    credentials: true
+  }));
 
   // In development environment the app logs
   app.use(logger("dev"));
