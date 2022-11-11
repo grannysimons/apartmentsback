@@ -40,6 +40,16 @@ module.exports = (app) => {
     origin: '*'
   }));
 
+  // Add Access Control Allow Origin headers
+  app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://front-exemple.netlify.app");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+
   // In development environment the app logs
   app.use(logger("dev"));
 
