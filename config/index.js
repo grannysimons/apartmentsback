@@ -36,13 +36,13 @@ module.exports = (app) => {
   //   // methods: "GET,PUT,POST,DELETE",
   // }));
 
-  app.use(cors({
-    origin: '*'
-  }));
+  // app.use(cors({
+  //   origin: '*'
+  // }));
 
   // Add Access Control Allow Origin headers
   app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://front-exemple.netlify.app");
+    res.setHeader("Access-Control-Allow-Origin", "front-exemple.netlify.app");
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
