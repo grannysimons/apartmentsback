@@ -36,7 +36,9 @@ module.exports = (app) => {
   //   // methods: "GET,PUT,POST,DELETE",
   // }));
 
-  app.use(cors());
+  app.use(cors({
+    origin: 'https://front-exemple.netlify.app'
+  }));
 
   // In development environment the app logs
   app.use(logger("dev"));
