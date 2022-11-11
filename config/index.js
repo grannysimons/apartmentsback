@@ -29,7 +29,8 @@ module.exports = (app) => {
   //   })
   // );
   app.use(cors({
-    origin: ["https://front-exemple.netlify.app"]
+    origin: ["https://front-exemple.netlify.app"],
+    optionsSuccessStatus: 200
     // credentials: true,
     // allowedHeaders: ['Content-Type', 'Authorization'],
     // methods: "GET,PUT,POST,DELETE",
