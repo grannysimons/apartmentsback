@@ -37,7 +37,7 @@ module.exports = (app) => {
   // }));
 
   app.use(cors({
-    origin: 'https://front-exemple.netlify.app'
+    origin: '*'
   }));
 
   // In development environment the app logs
