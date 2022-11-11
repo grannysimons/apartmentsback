@@ -2,12 +2,14 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const cors = require('cors');
+
 const saltRounds = 10;
 
 const isAuthenticated = require("../middleware/isAuthenticated");
 
 // /api/auth/signup
-router.post("/signup", (req, res, next)=>{
+router.post("/signup", cors(), (req, res, next)=>{
     console.log("/SIGNUP!!!!");
     const { username, password } = req.body;
 
@@ -36,7 +38,7 @@ router.post("/signup", (req, res, next)=>{
 })
 
 // /api/auth/login
-router.post("/login", (req, res, next) => {
+router.post("/login", cors(),(req, res, next) => {
     const {username, password} = req.body;
 
     //comprovacions bàsiques
